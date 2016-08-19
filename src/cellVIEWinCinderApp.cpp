@@ -2,6 +2,10 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
+#include "PDBLoader.hpp"
+
+#include <fstream>
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -16,6 +20,9 @@ class cellVIEWinCinderApp : public App {
 
 void cellVIEWinCinderApp::setup()
 {
+    string pathToFile = getAssetPath("2rcj.pdb").string();
+    Molecule * mol = PDBLoader::loadFromFile(pathToFile.c_str());
+    
 }
 
 void cellVIEWinCinderApp::mouseDown( MouseEvent event )
